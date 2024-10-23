@@ -1,6 +1,8 @@
 #ifndef ADD_H
 #define ADD_H
 
+//void * pointeur();
+
 /// @brief Add two numbers
 /// @param a n1
 /// @param b n2
