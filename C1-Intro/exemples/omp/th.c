@@ -8,6 +8,7 @@ void * foo(void * p)
 {
 	int v = *((int *)p);
 	printf("Thread %d\n", v);
+	while(1){}
 	return NULL;
 }
 

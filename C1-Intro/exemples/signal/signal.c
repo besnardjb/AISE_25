@@ -5,18 +5,23 @@
 
 void  plop(int sig)
 {
-	printf("SIGNINT :'(\n");
+	printf("SEGV :'(\n");
 }
 
 
 int main(int argc, char ** argv)
 
 {
-	if( signal(SIGINT, plop) )
+	if( signal(SIGSEGV, plop) )
 	{
 		perror("signal");
 		return 1;
 	}
+
+
+	char * lol = NULL;
+
+	*lol = 9;
 
 
 	while(1)
