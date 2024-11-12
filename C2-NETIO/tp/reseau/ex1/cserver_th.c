@@ -38,7 +38,7 @@ void *handle_client(void *pctx)
     struct th_info *ctx = (struct th_info *)pctx;
     int client_fd = ctx->fd;
 
-    FILE *f = fopen("./starwars.txt", "r");
+    FILE *f = fopen("./secret.txt", "r");
 
     if (f == NULL)
     {
@@ -65,7 +65,7 @@ void *handle_client(void *pctx)
 
         if (strstr(s, "\033[H"))
         {
-            usleep(100000);
+            usleep(1000000/24);
         }
 
         int len = strlen(s);
