@@ -25,7 +25,15 @@ int main(int argc, char ** argv)
         return 1;
     }
 
-    fwrite(parts, sizeof(struct Particle), NUM_PARTS, fd);
+//    fwrite(parts, sizeof(struct Particle), NUM_PARTS, fd);
+
+    fprintf(fd, "[");
+    for(i = 0; i < NUM_PARTS; i++)
+    {
+        fprintf(fd, "{\"x\": %d, \"y\": %d, \"z\":%d}%s", parts[i].x, parts[i].y, parts[i].z, (i < (NUM_PARTS - 1))?(","):(""));
+    }
+    fprintf(fd, "]");
+
 
     fclose(fd);
 
