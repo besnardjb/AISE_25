@@ -26,11 +26,6 @@ int main(int argc, char ** argv)
 
 		if(ret == 0)
 		{
-			break;
-		}
-
-		if(ret < 0)
-		{
 			if(feof(file))
 			{
 				break;
@@ -38,7 +33,9 @@ int main(int argc, char ** argv)
 
 			perror("read");
 			return 0;
+	
 		}
+
 
 		/* Use buffer */
 		int i;
