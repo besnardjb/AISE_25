@@ -69,7 +69,7 @@ int main(int argc, char ** argv)
 		{
 			double tsmm = now_gtod();
 			void * p = malloc(i);
-			memset(p, 9, i);
+			memset(p, 0, i);
 			double temm = now_gtod();
 			free(p);
 
