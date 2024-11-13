@@ -60,14 +60,11 @@ int str_compare(string a, string b)
 int str_print(string str)
 {
     printf("%s\n", str->s);
+    return 0;
 }
 
 int str_append(string to, const string add)
 {
-    printf("%s LEN %d\n", to->s, to->l);
-    printf("%s LEN %d\n", add->s, add->l);
-
-
     size_t prev_l = to->l;
     size_t new_size = to->l + add->l -1;
     to->s = realloc(to->s, new_size);
@@ -105,30 +102,3 @@ string str_slice(string targ, size_t start, size_t end)
     return str;
 }
 
-
-
-int main(int argc, char ** argv)
-{
-    string s = str_create("LOL MOI CONTENT");
-    string s2 = str_create("LOL MOI CONTENT PLUS LONG QUE AVANT");
-
-
-    str_print(s);
-    str_copy(s, s2);
-    str_print(s);
-
-    str_append(s, s);
-
-    str_print(s);
-
-    string toslice = str_create("01234");
-    string slice = str_slice(toslice, 3, 3);
-    str_print(slice);
-
-
-    str_free(toslice);
-    str_free(s);
-    str_free(s2);
-    str_free(slice);
-
-}

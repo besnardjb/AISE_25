@@ -71,4 +71,18 @@ int str_append(string to, const string add);
  */
 string str_slice(string targ, size_t start, size_t end);
 
+
+/**
+ * @brief Prints the contents of a string to the standard output stream.
+ * @param str The string to print.
+ * @return 0 on success, or an error code if the operation fails.
+ */
+int str_print(string str);
+
+/**
+ * Note: This function does not perform any bounds checking or error handling
+ * for the input string. It is assumed that the caller has already verified
+ * the integrity of the string data before passing it to this function.
+ */
+
 #endif /* MYSTRING_H */
