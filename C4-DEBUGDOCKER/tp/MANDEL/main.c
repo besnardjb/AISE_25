@@ -74,37 +74,7 @@ int main() {
 	double qx = wx / (double)width; 
 	double qy = wy / (double)height; 
 
-	int x,y;
-	// MANDELBROT vas en x de -2 a 1 et en Y de -1 a 1
-#pragma omp parallel for
-	for(y = 0; y < height; y++)
-	{
-		for(x = 0; x < width; x++)
-		{
-
-			double tx = startx + qx * x; 
-			double ty = starty + qy * y;
-
-			double complex c = tx + ty * I;	
-			double complex z = 0.0;
-
-			int cnt = 0;
-
-			while( (cabs(z) < 2.0) && (cnt < MAX_ITER))
-			{
-				z = z*z + c;
-				cnt++;
-			}
-
-			unsigned char r,g,b;
-			get_color(cnt, &r, &g, &b);
-			ppm_image_setpixel(&src_img, x,y,r,g,b);
-
-
-		}
-
-	}
-
+	// TODO MANDEL
 
 
 	// Enregistrer l'image résultante
