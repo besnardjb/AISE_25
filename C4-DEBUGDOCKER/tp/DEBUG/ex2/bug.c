@@ -2,19 +2,19 @@
 #include <stdlib.h>
 
 void process_data(int *data, int size) {
-    for (int i = 0; i <= size; i++) { 
+    for (int i = 0; i < size; i++) { 
         data[i] *= 2;
     }
 }
 
 void process_data2(int *data, int size) {
-    for (int i = 0; i < size + 50; i++) { 
+    for (int i = 0; i < size; i++) { 
         data[i] *= 2;
     }
 }
 
 void process_data3(int *data, int size) {
-    for (int i = 0; i < size * 1000; i++) { 
+    for (int i = 0; i < size; i++) { 
         data[i] *= 2;
     }
 }

@@ -16,8 +16,8 @@ void draw_square(struct ppm_image *im, int x1, int y1, int x2, int y2, unsigned 
 // Fonction pour appliquer une convolution avec un laplacien pour la détection de contours
 void apply_laplacian(struct ppm_image *src, struct ppm_image *dest) {
     int x, y;
-    for (y = 0; y < src->height; y++) {
-        for (x = 0; x < src->width; x++) {
+    for (y = 1; y < src->height - 1; y++) {
+        for (x = 1; x < src->width - 1; x++) {
             // Calcul de la somme des différences de luminosité autour du pixel
             int sum_r = -4 * src->px[y * src->width + x].r +
                         src->px[(y - 1) * src->width + x].r +

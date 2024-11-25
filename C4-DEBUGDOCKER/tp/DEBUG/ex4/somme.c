@@ -5,7 +5,7 @@ int main() {
     int sum = 0;
 
     // Calculer la somme des éléments du tableau
-    for (int i = 0; i <= 5; i++) { // Bug: Utilisation de <= au lieu de <
+    for (int i = 0; i < 5; i++) { // Bug: Utilisation de <= au lieu de <
         sum += array[i];
     }
 

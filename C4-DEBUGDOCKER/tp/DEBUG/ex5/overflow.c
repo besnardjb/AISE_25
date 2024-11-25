@@ -2,7 +2,7 @@
 
 void vulnerable_function() {
     char buffer[8];
-	 int password_is_good = 0;
+    int password_is_good = 0;
     printf("Entrez une chaîne de caractères : ");
     scanf("%s", buffer);
     printf("Vous avez entré : %s\n", buffer);
