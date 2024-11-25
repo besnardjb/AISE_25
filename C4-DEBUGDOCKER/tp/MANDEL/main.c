@@ -4,7 +4,7 @@
 
 #include "ppm.h"
 
-#define MAX_ITER 2048
+#define MAX_ITER 100
 
 // Define the LUT size
 #define LUT_SIZE MAX_ITER
@@ -57,8 +57,8 @@ void get_color2(int iter, unsigned char *r, unsigned char *g, unsigned char *b, 
 
 int main() {
 	struct ppm_image src_img;
-	int width = 8000;
-	int height = 6000;
+	int width = 800;
+	int height = 600;
 
 	// Initialisation des images
 	if (ppm_image_init(&src_img, width, height) != 0) {
@@ -74,8 +74,32 @@ int main() {
 	double qx = wx / (double)width; 
 	double qy = wy / (double)height; 
 
-	// TODO MANDEL
+	int y, x;
+	for(y= 0; y < height; y++)
+	{
+		for(x= 0; x < width; x++)
+		{
+			double tx = startx + x * qx;
+			double ty = starty + y * qy;
 
+			double complex c = tx + I * ty;
+			double complex z = 0;
+			int it = 0;
+
+			while( (cabs(z) < 2.0) && (it < MAX_ITER))
+			{
+				z = z * z + c;
+				it++;
+			}
+
+			unsigned char r,g,b;
+			get_color(it, &r, &g, &b);
+
+			ppm_image_setpixel(&src_img, x,y, r,g,b);
+		
+		}
+
+	}
 
 	// Enregistrer l'image résultante
 	if (ppm_image_dump(&src_img, "mandel.ppm") != 0) {
