@@ -57,8 +57,8 @@ void get_color2(int iter, unsigned char *r, unsigned char *g, unsigned char *b, 
 
 int main() {
 	struct ppm_image src_img;
-	int width = 800;
-	int height = 600;
+	int width = 8000;
+	int height = 6000;
 
 	// Initialisation des images
 	if (ppm_image_init(&src_img, width, height) != 0) {
@@ -75,6 +75,8 @@ int main() {
 	double qy = wy / (double)height; 
 
 	int y, x;
+
+	#pragma omp parallel for
 	for(y= 0; y < height; y++)
 	{
 		for(x= 0; x < width; x++)
