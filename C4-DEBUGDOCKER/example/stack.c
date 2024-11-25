@@ -27,8 +27,11 @@ int bar()
 	int a = 9;
 	int *pa = &a;
 	int *boom = NULL;
-	*boom = 10;
-	
+	int i;
+	for(i = 0; i < 1e6; i++)
+	{
+		printf("PLOP\n");
+	}	
 }
 
 
