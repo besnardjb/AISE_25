@@ -1,6 +1,6 @@
 #include <assert.h>
 
-
+int mdr;
 
 int main(int argc, char **argv)
 {
