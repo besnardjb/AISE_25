@@ -1,0 +1,9 @@
+set pagination off
+set breakpoint pending on
+break bar
+command 1
+bt
+c
+end
+r
+
