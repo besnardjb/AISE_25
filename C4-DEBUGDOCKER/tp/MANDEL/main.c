@@ -4,7 +4,7 @@
 
 #include "ppm.h"
 
-#define MAX_ITER 100
+#define MAX_ITER 512
 
 // Define the LUT size
 #define LUT_SIZE MAX_ITER
@@ -66,10 +66,10 @@ int main() {
 	}
 
 	/* -1 -0.4 0.25 0.25 */
-	double startx = -2;
-	double starty = -1;
-	double wx = 3;
-	double wy = 2;
+	double startx = -1.5;
+	double starty = -.25;
+	double wx = .2;
+	double wy = .2;
 
 	double qx = wx / (double)width; 
 	double qy = wy / (double)height; 
