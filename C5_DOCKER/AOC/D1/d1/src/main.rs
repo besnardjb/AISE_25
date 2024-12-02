@@ -1,9 +1,22 @@
+use clap::Parser;
 use std::collections::HashMap;
 use std::fs::File;
-use std::io::{BufRead, BufReader, Read};
+use std::io::{BufReader, Read};
+
+#[derive(Parser)]
+struct Args {
+    #[arg(long = "file", short = 'f')]
+    /// Pass a file to parse
+    file: String,
+    #[arg(short, long)]
+    /// Not required
+    lol: Option<String>,
+}
 
 fn main() {
-    let file = File::open("../data.txt").unwrap();
+    let args = Args::parse();
+
+    let file = File::open(args.file).unwrap();
     let mut reader = BufReader::new(file);
     let mut data = String::new();
     reader.read_to_string(&mut data).unwrap();
