@@ -5,7 +5,34 @@ use std::{
 
 use rand::Rng;
 
+struct Hello {
+    age: u32,
+    name: String,
+}
+
+impl Hello {}
+
+fn print(str: &String) {
+    println!("==> Valeur: {str}");
+}
+
 fn main() {
+    /* Ownership */
+    let a = String::new();
+    //let b = &a;
+    print(&a);
+    println!("{a}");
+
+    /* TUPLE */
+    let a = (2, 'c');
+    println!("{} {}", a.0, a.1);
+
+    /* Struct */
+    let h = Hello {
+        age: 3,
+        name: String::from("Bob"),
+    };
+
     println!("Guess the number !");
 
     let toguess: u64 = rand::thread_rng().gen_range(0..100);
