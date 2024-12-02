@@ -59,5 +59,16 @@ fn main() {
         .sum();
     println!("Q2 {}", sum);
 
-    let m: HashMap<String, u64> = HashMap::new();
+    let mut m: HashMap<u64, u64> = HashMap::new();
+
+    for v1 in b.iter() {
+        if let Some(k) = m.get_mut(v1) {
+            *k += 1;
+        } else {
+            m.insert(*v1, 1);
+        }
+    }
+
+    let tot: u64 = a.iter().map(|v1| v1 * m.get(v1).unwrap_or(&0)).sum();
+    println!("Q2'' {}", tot);
 }
