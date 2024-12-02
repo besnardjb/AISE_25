@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 use std::fs::File;
 use std::io::{BufRead, BufReader, Read};
 
@@ -33,5 +34,30 @@ fn main() {
         .map(|(va, vb)| va.abs_diff(*vb))
         .sum();
 
-    print!("{}", sum);
+    println!("Q1 {}", sum);
+
+    let mut sum: u64 = 0;
+
+    for v1 in a.iter() {
+        let mut occ = 0;
+        for v2 in b.iter() {
+            if v2 == v1 {
+                occ += 1;
+            }
+        }
+        sum += occ * v1;
+    }
+
+    println!("Q2' {}", sum);
+
+    let sum: u64 = a
+        .iter()
+        .map(|va| {
+            let occ = b.iter().filter(|vb| *va == **vb).count();
+            *va * occ as u64
+        })
+        .sum();
+    println!("Q2 {}", sum);
+
+    let m: HashMap<String, u64> = HashMap::new();
 }
