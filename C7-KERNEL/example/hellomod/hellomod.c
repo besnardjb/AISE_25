@@ -9,7 +9,11 @@ MODULE_DESCRIPTION("A simple Hello World Linux module"); // Description
 // Initialization function that runs when the module is loaded
 static int __init hello_init(void)
 {
-    printk(KERN_INFO "Hello, World! The kernel module is loaded.\n");
+
+	int a;
+
+    printk(KERN_INFO "Hello, World! The kernel module is loaded %d.\n", a);
+
     return 0;   // Returning 0 means the module was loaded successfully
 }
 

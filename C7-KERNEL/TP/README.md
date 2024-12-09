@@ -1,4 +1,3 @@
-Voici une version améliorée et plus claire de votre sujet de TP en systèmes :
 
 ---
 
