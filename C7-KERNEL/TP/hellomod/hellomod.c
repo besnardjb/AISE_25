@@ -9,14 +9,14 @@ MODULE_DESCRIPTION("A simple Hello World Linux module"); // Description
 // Initialization function that runs when the module is loaded
 static int __init hello_init(void)
 {
-    printk(KERN_INFO "Hello, World! The kernel module is loaded.\n");
+    printk(KERN_INFO "COUCOU.\n");
     return 0;   // Returning 0 means the module was loaded successfully
 }
 
 // Exit function that runs when the module is unloaded
 static void __exit hello_exit(void)
 {
-    printk(KERN_INFO "Goodbye, World! The kernel module is unloaded.\n");
+    printk(KERN_INFO "KTXBYE\n");
 }
 
 // Registering the init and exit functions
