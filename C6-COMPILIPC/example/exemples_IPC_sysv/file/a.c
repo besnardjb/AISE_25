@@ -15,7 +15,7 @@ double get_time()
 }
 
 
-#define SIZE 16
+#define SIZE 1024
 
 struct msg_t
 {
